@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_chat_app/features/chat/chat_history_page.dart';
-import 'package:mini_chat_app/features/users/users_page.dart';
+import 'package:mini_chat_app/features/users/screens/users_page.dart';
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
 import '../bloc/home_state.dart';
