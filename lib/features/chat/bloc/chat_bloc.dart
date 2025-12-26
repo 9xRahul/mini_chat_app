@@ -47,7 +47,7 @@ Future<void> onSend(SendMessageEvent event, Emitter<ChatState> emit) async {
         ),
       );
     } catch (e) {
-      // Network / parsing / unexpected error
+  
       emit(state.copyWith(isLoading: false, isError: true));
     }
   }

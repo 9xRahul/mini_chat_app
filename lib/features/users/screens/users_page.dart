@@ -33,8 +33,37 @@ class UsersPage extends StatelessWidget {
                         itemBuilder: (context, index) {
                           final user = state.users[index];
                           return ListTile(
-                            leading: CircleAvatar(
-                              child: Text(user.userName[0].toUpperCase()),
+                            leading: Stack(
+                              children: [
+                                CircleAvatar(
+                                  radius: 24,
+                                  backgroundColor: Colors.blue,
+                                  child: Text(user.userName[0].toUpperCase()),
+                                ),
+
+                                // 🟢 Online indicator
+                                if (user.time.isAfter(
+                                  DateTime.now().subtract(
+                                    const Duration(minutes: 1),
+                                  ),
+                                ))
+                                  Positioned(
+                                    right: 2,
+                                    bottom: 2,
+                                    child: Container(
+                                      width: 12,
+                                      height: 12,
+                                      decoration: BoxDecoration(
+                                        color: Colors.green,
+                                        shape: BoxShape.circle,
+                                        border: Border.all(
+                                          color: Colors.white,
+                                          width: 2,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                              ],
                             ),
                             title: Text(user.userName),
                             subtitle: Text(lastSeenText(user.time)),

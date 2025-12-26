@@ -52,21 +52,49 @@ class ChatPage extends StatelessWidget {
                       alignment: msg.isSender!
                           ? Alignment.centerRight
                           : Alignment.centerLeft,
-                      child: Container(
-                        margin: const EdgeInsets.all(8),
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: msg.isSender!
-                              ? Colors.blue
-                              : Colors.grey.shade300,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Text(
-                          msg.body!,
-                          style: TextStyle(
-                            color: msg.isSender! ? Colors.white : Colors.black,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // Receiver avatar (LEFT)
+                          if (!msg.isSender!)
+                            Padding(
+                              padding: const EdgeInsets.only(right: 6, top: 10),
+                              child: CircleAvatar(
+                                radius: 16,
+                                child: Text(userName[0].toUpperCase()),
+                              ),
+                            ),
+
+                          // Message bubble
+                          Flexible(
+                            child: Container(
+                              margin: const EdgeInsets.symmetric(vertical: 6),
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: msg.isSender!
+                                    ? Colors.blue
+                                    : Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Text(
+                                msg.body!,
+                                style: TextStyle(
+                                  color: msg.isSender!
+                                      ? Colors.white
+                                      : Colors.black,
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
+
+                          // Sender avatar (RIGHT)
+                          if (msg.isSender!)
+                            Padding(
+                              padding: const EdgeInsets.only(left: 6, top: 10),
+                              child: CircleAvatar(radius: 16, child: Text('X')),
+                            ),
+                        ],
                       ),
                     );
                   },
