@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_chat_app/constants/users.dart';
-import 'package:mini_chat_app/features/chat/screens/chat_history_page.dart';
+import 'package:mini_chat_app/features/history/screens/chat_history_page.dart';
+import 'package:mini_chat_app/features/chat/messages_screen.dart';
 import 'package:mini_chat_app/features/users/bloc/widgets/top_screen_change.dart';
 import 'package:mini_chat_app/features/users/widget/add_user_dialouge.dart';
 import 'package:mini_chat_app/features/users/widget/convert_time.dart';
@@ -17,12 +18,11 @@ class UsersPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          // 🔹 Items BEFORE the list
           UsersChatToggle(),
 
           const Divider(height: 1),
 
-          // 🔹 Chat/User list
+          //  User list
           BlocBuilder<UsersBloc, UsersState>(
             builder: (context, state) {
               return Expanded(
@@ -42,7 +42,8 @@ class UsersPage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => const ChatHistoryPage(),
+                                  builder: (_) =>
+                                      ChatPage(userName: user.userName),
                                 ),
                               );
                             },
@@ -55,11 +56,17 @@ class UsersPage extends StatelessWidget {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showAddUserDialog(context);
+      floatingActionButton: BlocBuilder<UsersBloc, UsersState>(
+        builder: (context, state) {
+          if (!state.isUsers) return const SizedBox.shrink();
+
+          return FloatingActionButton(
+            onPressed: () {
+              showAddUserDialog(context);
+            },
+            child: const Icon(Icons.add),
+          );
         },
-        child: const Icon(Icons.add),
       ),
     );
   }

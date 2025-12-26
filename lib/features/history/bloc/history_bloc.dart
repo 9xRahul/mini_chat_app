@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mini_chat_app/constants/chat.dart';
-import 'package:mini_chat_app/features/chat/bloc/history_event.dart';
-import 'package:mini_chat_app/features/chat/bloc/history_state.dart';
+import 'package:mini_chat_app/features/history/bloc/history_event.dart';
+import 'package:mini_chat_app/features/history/bloc/history_state.dart';
 import 'package:mini_chat_app/models/chat_history_models.dart';
 
 class ChatHistoryBloc extends Bloc<ChatHistoryEvent, ChatHistoryState> {

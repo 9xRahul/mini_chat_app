@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mini_chat_app/features/chat/bloc/history_bloc.dart';
-import 'package:mini_chat_app/features/chat/bloc/history_state.dart';
+import 'package:mini_chat_app/features/history/bloc/history_bloc.dart';
+import 'package:mini_chat_app/features/history/bloc/history_state.dart';
+import 'package:mini_chat_app/features/users/widget/convert_time.dart';
 
 class ChatHistoryPage extends StatelessWidget {
   const ChatHistoryPage({super.key});
@@ -21,9 +22,7 @@ class ChatHistoryPage extends StatelessWidget {
               ),
               title: Text(chat.userName),
               subtitle: Text(chat.lastMessage),
-              trailing: Text(
-                '${chat.time.hour}:${chat.time.minute.toString().padLeft(2, '0')}',
-              ),
+              trailing: Text(lastSeenText(chat.time)),
             );
           },
         );
