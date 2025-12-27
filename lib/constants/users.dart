@@ -17,7 +17,7 @@ final List<UserModel> users = [
   ),
   UserModel(
     userName: 'Meera',
-    time: now.subtract(const Duration(minutes: 5)), // 5 min ago
+    time: now, // 5 min ago
   ),
   UserModel(
     userName: 'Arjun',
@@ -29,7 +29,7 @@ final List<UserModel> users = [
   ),
   UserModel(
     userName: 'Kiran',
-    time: now.subtract(const Duration(hours: 2)), // 2 hrs ago
+    time: now, // 2 hrs ago
   ),
   UserModel(
     userName: 'Neethu',
@@ -42,5 +42,53 @@ final List<UserModel> users = [
   UserModel(
     userName: 'Sandeep',
     time: now.subtract(const Duration(days: 2)), // 2 days ago
+  ),
+  UserModel(
+    userName: 'Vishnu',
+    time: now.subtract(const Duration(minutes: 2)), // 2 min ago
+  ),
+  UserModel(
+    userName: 'Meera',
+    time: now, // 5 min ago
+  ),
+  UserModel(
+    userName: 'Arjun',
+    time: now.subtract(const Duration(minutes: 10)), // 10 min ago
+  ),
+  UserModel(
+    userName: 'Sneha',
+    time: now.subtract(const Duration(hours: 1)), // 1 hr ago
+  ),
+  UserModel(
+    userName: 'Kiran',
+    time: now, // 2 hrs ago
+  ),
+  UserModel(
+    userName: 'Neethu',
+    time: now.subtract(const Duration(hours: 5)), // 5 hrs ago
+  ),
+  UserModel(
+    userName: 'Vishnu',
+    time: now.subtract(const Duration(minutes: 2)), // 2 min ago
+  ),
+  UserModel(
+    userName: 'Meera',
+    time: now, // 5 min ago
+  ),
+  UserModel(
+    userName: 'Arjun',
+    time: now.subtract(const Duration(minutes: 10)), // 10 min ago
+  ),
+  UserModel(
+    userName: 'Sneha',
+    time: now.subtract(const Duration(hours: 1)), // 1 hr ago
+  ),
+  UserModel(
+    userName: 'Kiran',
+    time: now, // 2 hrs ago
+  ),
+  UserModel(
+    userName: 'Neethu',
+    time: now.subtract(const Duration(hours: 5)), // 5 hrs ago
   ),
 ];

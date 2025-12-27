@@ -19,5 +19,17 @@ class UsersBloc extends Bloc<UsersEvent, UsersState> {
     on<ChangePageEvent>((event, emit) {
       emit(state.copyWith(isUsers: event.isUsers));
     });
+
+    on<HideTopToggle>((event, emit) {
+      if (state.showTopToggle) {
+        emit(state.copyWith(showTopToggle: false));
+      }
+    });
+
+    on<ShowTopToggle>((event, emit) {
+      if (!state.showTopToggle) {
+        emit(state.copyWith(showTopToggle: true));
+      }
+    });
   }
 }

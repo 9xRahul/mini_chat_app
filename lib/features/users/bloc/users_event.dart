@@ -10,3 +10,7 @@ class ChangePageEvent extends UsersEvent {
 
   ChangePageEvent(this.isUsers);
 }
+
+class HideTopToggle extends UsersEvent {}
+
+class ShowTopToggle extends UsersEvent {}

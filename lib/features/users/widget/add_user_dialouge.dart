@@ -32,7 +32,7 @@ void showAddUserDialog(BuildContext context) {
 
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(const SnackBar(content: Text('User added')));
+                ).showSnackBar(SnackBar(content: Text(' $newUser added')));
               }
 
               Navigator.pop(context);

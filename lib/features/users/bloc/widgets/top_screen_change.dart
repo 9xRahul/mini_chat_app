@@ -11,31 +11,35 @@ class UsersChatToggle extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UsersBloc, UsersState>(
       builder: (context, state) {
-        return Container(
-          padding: const EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            color: Colors.grey.shade200,
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Row(
-            children: [
-              _tab(
-                context,
-                label: 'Users',
-                isSelected: state.isUsers,
-                onTap: () {
-                  context.read<UsersBloc>().add(ChangePageEvent(true));
-                },
-              ),
-              _tab(
-                context,
-                label: 'Chat History',
-                isSelected: !state.isUsers,
-                onTap: () {
-                  context.read<UsersBloc>().add(ChangePageEvent(false));
-                },
-              ),
-            ],
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 10),
+          child: Container(
+            height: 40,
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: Colors.grey.shade200,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              children: [
+                _tab(
+                  context,
+                  label: 'Users',
+                  isSelected: state.isUsers,
+                  onTap: () {
+                    context.read<UsersBloc>().add(ChangePageEvent(true));
+                  },
+                ),
+                _tab(
+                  context,
+                  label: 'Chat History',
+                  isSelected: !state.isUsers,
+                  onTap: () {
+                    context.read<UsersBloc>().add(ChangePageEvent(false));
+                  },
+                ),
+              ],
+            ),
           ),
         );
       },
@@ -53,7 +57,7 @@ class UsersChatToggle extends StatelessWidget {
         onTap: onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 0),
           decoration: BoxDecoration(
             color: isSelected ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(25),
@@ -63,7 +67,7 @@ class UsersChatToggle extends StatelessWidget {
             label,
             style: TextStyle(
               fontWeight: FontWeight.w600,
-              color: isSelected ? Colors.black : Colors.grey,
+              color: isSelected ? Colors.black : Colors.blueGrey,
             ),
           ),
         ),
